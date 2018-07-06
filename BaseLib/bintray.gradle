@@ -5,8 +5,8 @@ def packageName = "base_lib" //需更改，这个名字就是你在Bintray上创
 
 def repoName = "maven" //发布到Bintray的那个仓库里，默认账户有四个库，我们这里上传到maven库
 
-def siteUrl = 'https://github.com/shendanxiang/Ark'                        // #CONFIG# // project homepage
-def gitUrl = 'https://github.com/shendanxiang/Ark.git'                     // #CONFIG# // project git
+def siteUrl = 'https://github.com/shendanxiang/ArkProject'                        // #CONFIG# // project homepage
+def gitUrl = 'https://github.com/shendanxiang/ArkProject.git'                     // #CONFIG# // project git
 
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.dcendents.android-maven'
