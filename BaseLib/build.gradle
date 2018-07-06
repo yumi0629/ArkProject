@@ -24,6 +24,12 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility javaVersion
+        targetCompatibility javaVersion
+    }
+
+    resourcePrefix "base_"
 }
 
 dependencies {
@@ -40,5 +46,4 @@ dependencies {
     // ------------------------------    support
     api "com.android.support:appcompat-v7:$appcompat_v7_version"
     api "com.android.support.constraint:constraint-layout:$constraint_layout_version"
-
 }

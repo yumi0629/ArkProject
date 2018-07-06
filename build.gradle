@@ -18,6 +18,10 @@ buildscript {
     }
 }
 
+project.ext {
+    javaVersion = JavaVersion.VERSION_1_8
+}
+
 allprojects {
     repositories {
         google()
