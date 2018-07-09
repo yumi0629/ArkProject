@@ -66,6 +66,8 @@ dependencies {
     api "com.squareup.retrofit2:converter-gson:$converter_gson_version"
     api "com.squareup.retrofit2:adapter-rxjava2:$adapter_rxjava2_version"
 
+    implementation 'com.github.tbruyelle:rxpermissions:0.10.1'
+
     api "com.trello.rxlifecycle2:rxlifecycle:$rxlifecycle_version"
     // If you want to bind to Android-specific lifecycles
     api "com.trello.rxlifecycle2:rxlifecycle-android:$rxlifecycle_version"
