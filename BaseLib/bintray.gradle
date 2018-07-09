@@ -29,7 +29,6 @@ artifacts {
     archives androidJavadocsJar
 }
 
-
 install {
     repositories.mavenInstaller {
         // This generates POM.xml with proper parameters
