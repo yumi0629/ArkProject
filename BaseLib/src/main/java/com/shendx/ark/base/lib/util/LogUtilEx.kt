@@ -59,11 +59,11 @@ fun logv(message: String) {
     }
 }
 
-fun logv(objs: Any?) {
+fun logv(obj: Any?) {
     if (isAndroid) {
-        Logger.v(objs?.toString() ?: "null")
+        Logger.v(obj?.toString() ?: "null")
     } else {
-        println(objs)
+        println(obj)
     }
 }
 
@@ -83,11 +83,11 @@ fun logi(message: String) {
     }
 }
 
-fun logi(objs: Any?) {
+fun logi(obj: Any?) {
     if (isAndroid) {
-        Logger.i(objs?.toString() ?: "null")
+        Logger.i(obj?.toString() ?: "null")
     } else {
-        println(objs)
+        println(obj)
     }
 }
 
@@ -116,11 +116,11 @@ fun logd(objs: Any?) {
     }
 }
 
-fun logd(tag: String, objs: Any? = null) {
+fun logd(tag: String, obj: Any? = null) {
     if (isAndroid) {
-        Logger.t(tag).d(objs)
+        Logger.t(tag).d(obj)
     } else {
-        println(objs)
+        println(obj)
     }
 }
 
@@ -133,11 +133,11 @@ fun logd(message: String) {
     }
 }
 
-fun logw(objs: Any?) {
+fun logw(obj: Any?) {
     if (isAndroid) {
-        Logger.w(objs?.toString() ?: "null")
+        Logger.w(obj?.toString() ?: "null")
     } else {
-        println(objs)
+        println(obj)
     }
 }
 
@@ -149,7 +149,6 @@ fun logw(tag: String, message: String) {
     }
 }
 
-
 fun loge(message: String) {
     if (isAndroid) {
         Logger.e(message)
@@ -158,26 +157,25 @@ fun loge(message: String) {
     }
 }
 
-fun loge(objs: Any?) {
+fun loge(obj: Any?) {
     if (isAndroid) {
-        Logger.e(objs?.toString() ?: "null")
+        Logger.e(obj?.toString() ?: "null")
     } else {
-        println(objs)
+        println(obj)
     }
 }
 
-fun loge(tag: String, objs: Any? = null) {
+fun loge(tag: String, obj: Any? = null) {
     if (isAndroid) {
-        Logger.t(tag).e(objs?.toString() ?: "null")
+        Logger.t(tag).e(obj?.toString() ?: "null")
     } else {
-        System.err.println(objs)
+        System.err.println(obj)
     }
 }
 
 fun loge(tag: String, e: Exception) {
     if (isAndroid) {
         if (isDebugMode) {
-//            Logger.e(e, e.message, "")
             Logger.e(tag, e, e.message, "")
         } else {
             e.printStackTrace()
@@ -209,11 +207,11 @@ fun logAssert(message: String) {
     }
 }
 
-fun logAssert(objs: Any?) {
+fun logAssert(obj: Any?) {
     if (isAndroid) {
-        Logger.wtf(objs?.toString() ?: "null")
+        Logger.wtf(obj?.toString() ?: "null")
     } else {
-        println(objs)
+        println(obj)
     }
 }
 

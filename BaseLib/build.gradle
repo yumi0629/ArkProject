@@ -44,9 +44,43 @@ dependencies {
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     // ------------------------------    support
-    api "com.android.support:appcompat-v7:$appcompat_v7_version"
+    api "com.android.support:appcompat-v7:$support_library_version"
+    api "com.android.support:recyclerview-v7:$support_library_version"
+    api "com.android.support:support-annotations:$support_library_version"
+
+    // constraint_layout
     api "com.android.support.constraint:constraint-layout:$constraint_layout_version"
+    // multidex
     api "com.android.support:multidex:$multidex_version"
+
+    // ------------------------------    frame
+    // leakcanary
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakcanary_version"
+    releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanary_version"
+
+    // http
+    api "io.reactivex.rxjava2:rxjava:$rxjava_version"
+    api "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+    api "com.squareup.retrofit2:retrofit:$retrofit_version"
+    api "com.squareup.okhttp3:logging-interceptor:$logging_interceptor_version"
+    api "com.squareup.retrofit2:converter-gson:$converter_gson_version"
+    api "com.squareup.retrofit2:adapter-rxjava2:$adapter_rxjava2_version"
+
+    api "com.trello.rxlifecycle2:rxlifecycle:$rxlifecycle_version"
+    // If you want to bind to Android-specific lifecycles
+    api "com.trello.rxlifecycle2:rxlifecycle-android:$rxlifecycle_version"
+    // If you want pre-written Activities and Fragments you can subclass as providers
+    api "com.trello.rxlifecycle2:rxlifecycle-components:$rxlifecycle_version"
+    // If you want pre-written support preference Fragments you can subclass as providers
+    //    api "com.trello.rxlifecycle2:rxlifecycle-components-preference:$rxlifecycle_version"
+    // If you want to use Navi for providers
+    //    api "com.trello.rxlifecycle2:rxlifecycle-navi:$rxlifecycle_version"
+    // If you want to use Android Lifecycle for providers
+    api "com.trello.rxlifecycle2:rxlifecycle-android-lifecycle:$rxlifecycle_version"
+    // If you want to use Kotlin syntax
+    api "com.trello.rxlifecycle2:rxlifecycle-kotlin:$rxlifecycle_version"
+    // If you want to use Kotlin syntax with Android Lifecycle
+    api "com.trello.rxlifecycle2:rxlifecycle-android-lifecycle-kotlin:$rxlifecycle_version"
 
     // ------------------------------    3rd-party
     // image
@@ -54,6 +88,5 @@ dependencies {
     // gson
     api "com.google.code.gson:gson:$gson_version"
     // logger
-    api "com.orhanobut:logger:$logger_version"
-
+    implementation "com.orhanobut:logger:$logger_version"
 }
