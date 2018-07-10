@@ -35,12 +35,13 @@ dependencies {
     debugApi "com.squareup.leakcanary:leakcanary-android:$leakcanary_version"
     releaseApi "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanary_version"
 
-
     if (isUseAAR.toBoolean() || isBuildModule.toBoolean()) {
         implementation "com.shendx.Ark:BaseLib:$base_lib_version"
+        implementation "com.shendx.Ark:M_WanAndroid:$m_wan_android_version"
         implementation "com.shendx.Ark:ExampleModule:$example_module_version"
     } else {
         implementation project(':BaseLib')
         implementation project(':ExampleModule')
+        implementation project(':M_WanAndroid')
     }
 }

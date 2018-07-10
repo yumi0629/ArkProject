@@ -30,10 +30,10 @@ project.ext {
 
 allprojects {
     repositories {
+        maven { url 'https://dl.bintray.com/shendx/maven' }
         google()
         jcenter()
         maven { url 'https://jitpack.io' }
-        maven { url 'https://dl.bintray.com/shendx/maven' }
     }
 }
 
