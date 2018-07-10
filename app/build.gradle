@@ -33,6 +33,7 @@ dependencies {
 
     if (isUseAAR.toBoolean() || isBuildModule.toBoolean()) {
         implementation "com.shendx.Ark:BaseLib:$base_lib_version"
+        implementation "com.shendx.Ark:ExampleModule:$example_module_version"
     } else {
         implementation project(':BaseLib')
         implementation project(':ExampleModule')
