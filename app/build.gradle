@@ -37,6 +37,5 @@ dependencies {
     } else {
         implementation project(':BaseLib')
         implementation project(':ExampleModule')
-
     }
 }
