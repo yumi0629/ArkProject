@@ -1,4 +1,8 @@
-apply plugin: 'com.android.application'
+if (isBuildModule.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
@@ -6,25 +10,47 @@ android {
     compileSdkVersion compile_sdk_version
 
     defaultConfig {
-        applicationId "com.shendx.ark"
         minSdkVersion min_sdk_version
         targetSdkVersion target_sdk_version
+
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         multiDexEnabled true
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
     }
+
+    sourceSets {
+        main {
+            if (isBuildModule.toBoolean()) {
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/release/AndroidManifest.xml'
+                java {
+                    exclude 'debug/**'
+                }
+            }
+        }
+    }
+    resourcePrefix "example_module"
+
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     // ------------------------------    test
     testImplementation "junit:junit:$junit_version"
@@ -35,7 +61,5 @@ dependencies {
         implementation "com.shendx.Ark:BaseLib:$base_lib_version"
     } else {
         implementation project(':BaseLib')
-        implementation project(':ExampleModule')
-
     }
 }

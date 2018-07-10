@@ -1,8 +1,9 @@
 package com.shendx.ark.base.lib
 
-import android.content.Context
+import android.app.Application
 import android.support.multidex.MultiDexApplication
-import com.squareup.leakcanary.LeakCanary
+import com.shendx.ark.base.lib.util.initLogUtil
+import com.shendx.ark.base.lib.util.loge
 import kotlin.properties.Delegates
 
 /**
@@ -13,24 +14,18 @@ open class BaseApplication : MultiDexApplication() {
 
     companion object {
         @JvmStatic
-        var context: Context by Delegates.notNull()
+        var context: Application by Delegates.notNull()
+
+        @JvmStatic
+        fun initBaseApplication(context: Application) {
+            initLogUtil(true,"Ark")
+            loge("initBaseApplication")
+        }
     }
 
     override fun onCreate() {
         super.onCreate()
-        context = applicationContext
+        context = this
 
-        initLeakCanary()
-    }
-
-    private fun initLeakCanary() {
-
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            // This process is dedicated to LeakCanary for heap analysis.
-            // You should not init your app in this process.
-            return
-        }
-        LeakCanary.install(this)
-        // Normal app init code...
     }
 }

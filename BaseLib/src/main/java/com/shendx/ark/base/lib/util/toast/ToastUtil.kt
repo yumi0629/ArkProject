@@ -14,7 +14,7 @@ import com.shendx.ark.base.lib.util.getStringRes
 /**
  * Toast工具类
  */
-object ToastUtil {
+private object MyToast {
     private var toast: Toast? = null
     private var oldMsg: String? = null
     private var oneTime: Long = 0
@@ -50,9 +50,9 @@ object ToastUtil {
 }
 
 fun toast(text: String?) {
-    ToastUtil.showToast(text ?: "")
+    MyToast.showToast(text ?: "")
 }
 
 fun toast(@StringRes res: Int) {
-    ToastUtil.showToast(res)
+    MyToast.showToast(res)
 }

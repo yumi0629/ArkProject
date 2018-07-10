@@ -1,4 +1,4 @@
-package com.suning.warehousemobile.base.lib.util.delegate
+package com.shendx.ark.base.lib.util.delegate
 
 import kotlin.reflect.KProperty
 

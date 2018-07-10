@@ -1,6 +1,7 @@
 package com.shendx.ark
 
 import com.shendx.ark.base.lib.BaseApplication
+import com.shendx.ark.base.lib.util.loge
 
 /**
  * PS:
@@ -10,5 +11,7 @@ class ArkApplication : BaseApplication() {
 
     override fun onCreate() {
         super.onCreate()
+        loge("ArkApplication")
+        BaseApplication.initBaseApplication(context)
     }
 }
