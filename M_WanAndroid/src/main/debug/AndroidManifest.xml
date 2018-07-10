@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.shendx.ark.example.module">
+    package="com.shendx.ark.biz.wanandroid">
 
     <application
-        android:name=".ExampleModuleApplication"
+        android:name=".WanAndroidApplication"
         android:allowBackup="false"
         android:icon="@mipmap/base_ic_launcher"
-        android:label="@string/example_module_app_name"
+        android:label="@string/m_wan_app_name"
         android:roundIcon="@mipmap/base_ic_launcher_round"
         android:supportsRtl="false"
         android:theme="@style/base_AppTheme">

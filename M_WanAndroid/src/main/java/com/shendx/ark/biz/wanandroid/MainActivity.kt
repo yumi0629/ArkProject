@@ -1,12 +1,12 @@
-package com.shendx.ark.example.module
+package com.shendx.ark.biz.wanandroid
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.example_module_activity_main)
+        setContentView(R.layout.activity_main)
     }
 }

@@ -1,46 +1,67 @@
-apply plugin: 'com.android.application'
+if (isBuildModule.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+
+apply from: './bintray.gradle'
 
 android {
     compileSdkVersion compile_sdk_version
 
     defaultConfig {
-        applicationId "com.shendx.ark"
         minSdkVersion min_sdk_version
         targetSdkVersion target_sdk_version
+
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         multiDexEnabled true
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
     }
+
+    sourceSets {
+        main {
+            if (isBuildModule.toBoolean()) {
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/release/AndroidManifest.xml'
+                java {
+                    exclude 'debug/**'
+                }
+            }
+        }
+    }
+    resourcePrefix "m_wan_"
+
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     // ------------------------------    test
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "com.android.support.test:runner:$runner_version"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso_core_version"
 
-    // leakcanary
-    debugApi "com.squareup.leakcanary:leakcanary-android:$leakcanary_version"
-    releaseApi "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanary_version"
-
-
     if (isUseAAR.toBoolean() || isBuildModule.toBoolean()) {
         implementation "com.shendx.Ark:BaseLib:$base_lib_version"
-        implementation "com.shendx.Ark:ExampleModule:$example_module_version"
     } else {
         implementation project(':BaseLib')
-        implementation project(':ExampleModule')
     }
 }

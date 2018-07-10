@@ -55,10 +55,6 @@ dependencies {
     api "com.android.support:multidex:$multidex_version"
 
     // ------------------------------    frame
-    // leakcanary
-//    debugApi "com.squareup.leakcanary:leakcanary-android:$leakcanary_version"
-//    releaseApi "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanary_version"
-
     // http
     api "io.reactivex.rxjava2:rxjava:$rxjava_version"
     api "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
