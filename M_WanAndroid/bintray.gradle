@@ -63,13 +63,15 @@ install {
     }
 }
 
-Properties properties = new Properties()
+//Properties properties = new Properties()
 // 加载本地配置
-properties.load(project.rootProject.file('./bintray.properties').newDataInputStream())
+//properties.load(project.rootProject.file('./bintray.properties').newDataInputStream())
 //这个是和你bintray上面创建的package(项目)是对应的
 bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
+//    user = properties.getProperty("bintray.user")
+//    key = properties.getProperty("bintray.apikey")
+    user = BINTRAY_USER
+    key = BINTRAY_KEY
     configurations = ['archives']
     pkg {
         repo = repoName  //发布到Bintray的那个仓库里，默认账户有四个库，我们这里上传到maven库

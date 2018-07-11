@@ -1,5 +1,5 @@
 group = "com.shendx.Ark"
-version = "0.0.13" //定义版本标识
+version = "0.0.14" //定义版本标识
 
 def packageName = "base_lib" //需更改，这个名字就是你在Bintray上创建Package的名字，这里会查询，如果此包不存在就会创建一个。
 
@@ -63,13 +63,16 @@ install {
     }
 }
 
-Properties properties = new Properties()
+//Properties properties = new Properties()
 // 加载本地配置
-properties.load(project.rootProject.file('./bintray.properties').newDataInputStream())
+//properties.load(project.rootProject.file('./bintray.properties').newDataInputStream())
 //这个是和你bintray上面创建的package(项目)是对应的
 bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
+//    user = properties.getProperty("bintray.user")
+    user = BINTRAY_USER
+    key = BINTRAY_KEY
+
+//    key = properties.getProperty("bintray.apikey")
     configurations = ['archives']
     pkg {
         repo = repoName  //发布到Bintray的那个仓库里，默认账户有四个库，我们这里上传到maven库
