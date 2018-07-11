@@ -58,10 +58,12 @@ dependencies {
     // http
     api "io.reactivex.rxjava2:rxjava:$rxjava_version"
     api "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+    api "com.jakewharton.rxbinding2:rxbinding:$rxbinding_version"
     api "com.squareup.retrofit2:retrofit:$retrofit_version"
-    api "com.squareup.okhttp3:logging-interceptor:$logging_interceptor_version"
     api "com.squareup.retrofit2:converter-gson:$converter_gson_version"
     api "com.squareup.retrofit2:adapter-rxjava2:$adapter_rxjava2_version"
+
+    api "com.squareup.okhttp3:logging-interceptor:$logging_interceptor_version"
 
     api 'com.github.tbruyelle:rxpermissions:0.10.1'
 

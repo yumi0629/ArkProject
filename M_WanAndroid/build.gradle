@@ -35,6 +35,11 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility javaVersion
+        targetCompatibility javaVersion
+    }
+
     sourceSets {
         main {
             if (isBuildModule.toBoolean()) {
@@ -48,7 +53,6 @@ android {
         }
     }
     resourcePrefix "m_wan_"
-
 }
 
 dependencies {
@@ -60,7 +64,8 @@ dependencies {
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso_core_version"
 
     if (isUseAAR.toBoolean() || isBuildModule.toBoolean()) {
-        implementation "com.shendx.Ark:BaseLib:$base_lib_version"
+//        implementation "com.shendx.Ark:BaseLib:$base_lib_version"
+        implementation project(':BaseLib')
     } else {
         implementation project(':BaseLib')
     }
