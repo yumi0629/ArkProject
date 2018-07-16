@@ -2,6 +2,7 @@ package com.shendx.ark.base.lib.http
 
 import com.google.gson.GsonBuilder
 import com.shendx.ark.base.lib.util.json.NullStringToEmptyAdapterFactory
+import com.shendx.ark.base.lib.util.logd
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -15,9 +16,9 @@ import java.util.concurrent.TimeUnit
  */
 object RetrofitHelper {
 
-    private val BASE_URL = "http://www.wanandroid.com"
+    private const val BASE_URL = "http://www.wanandroid.com"
 
-    private val TIMEOUT: Long = 30L
+    private const val TIMEOUT: Long = 30L
 
     val retrofit: Retrofit by lazy {
         Retrofit.Builder()
@@ -29,7 +30,10 @@ object RetrofitHelper {
     }
 
     private val httpClient: OkHttpClient by lazy {
-        val httpLoggingInterceptor = HttpLoggingInterceptor()
+        val httpLoggingInterceptor =
+                HttpLoggingInterceptor(HttpLoggingInterceptor.Logger { message ->
+                    logd(message)
+                })
         httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY //日志输出
 
         OkHttpClient.Builder()
@@ -46,6 +50,9 @@ object RetrofitHelper {
                 .build()
     }
 
+    /**
+     * 去除服务返回的null 字段
+     */
     private val gson by lazy {
         GsonBuilder()
                 .registerTypeAdapterFactory(NullStringToEmptyAdapterFactory())

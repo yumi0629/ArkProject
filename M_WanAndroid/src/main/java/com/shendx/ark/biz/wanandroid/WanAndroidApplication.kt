@@ -9,5 +9,18 @@ import com.shendx.ark.base.lib.BaseApplication
 class WanAndroidApplication : BaseApplication() {
     override fun onCreate() {
         super.onCreate()
+        BaseApplication.initBaseApplication(context)
+        initLeakCanary()
+    }
+
+    private fun initLeakCanary() {
+
+//        if (LeakCanary.isInAnalyzerProcess(this)) {
+//             This process is dedicated to LeakCanary for heap analysis.
+//             You should not init your app in this process.
+//            return
+//        }
+//        LeakCanary.install(this)
+        // Normal app init code...
     }
 }

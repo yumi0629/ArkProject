@@ -1,16 +1,22 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="base_AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Base.AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsTranslucent">false</item>
         <item name="android:screenOrientation">portrait</item>
         <item name="android:windowBackground">@color/base_white</item>
+        <item name="android:windowSoftInputMode">stateAlwaysHidden|adjustResize</item>
     </style>
 
-    <style name="base_start_theme" parent="base_AppTheme">
-        <!-- Customize your theme here. -->
-        <item name="android:windowBackground">@mipmap/base_ic_launcher</item>
+    <style name="Base.ToolbarTheme" parent="Theme.AppCompat.Light">
+        <!-- 设置 toolbar 溢出菜单的文字的颜色 -->
+        <item name="actionMenuTextColor">#ff82DB</item>
+    </style>
+
+    <style name="Base.TranslucentTheme" parent="Base.AppTheme">
     </style>
 </resources>

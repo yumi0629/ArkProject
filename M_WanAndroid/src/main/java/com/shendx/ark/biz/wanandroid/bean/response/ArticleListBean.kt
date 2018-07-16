@@ -1,4 +1,4 @@
-package com.shendx.ark.biz.wanandroid.model
+package com.shendx.ark.biz.wanandroid.bean.response
 
 /**
  * PS:
