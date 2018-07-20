@@ -1,4 +1,4 @@
-package com.shendx.ark.biz.wanandroid.http
+package com.shendx.ark.base.lib.http.api
 
 /**
  * PS:

@@ -5,67 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.shendx.ark.biz.wanandroid.MainActivity">
+    tools:context="com.shendx.ark.biz.wanandroid.ui.home.MainActivity">
 
     <include
         android:id="@+id/toolbar"
         layout="@layout/base_layout_toolbar" />
 
-    <Button
-        android:id="@+id/m_wan_button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Button" />
-
-    <Button
-        android:id="@+id/m_wan_button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Button" />
-
-    <Button
-        android:id="@+id/m_wan_button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Button" />
-
-    <Button
-        android:id="@+id/m_wan_button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Button" />
-
-    <Button
-        android:id="@+id/m_wan_button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Button" />
-
-    <Button
-        android:id="@+id/m_wan_button6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Button" />
-
-    <Button
-        android:id="@+id/m_wan_button7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Button" />
-
-    <Button
-        android:id="@+id/m_wan_button8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Button" />
-
+    <include layout="@layout/base_normal_list" />
 
 </LinearLayout>

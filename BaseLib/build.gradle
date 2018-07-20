@@ -45,10 +45,12 @@ dependencies {
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     // ------------------------------    support
+    api "com.android.support:support-v4:$support_library_version"
     api "com.android.support:appcompat-v7:$support_library_version"
-    api "com.android.support:recyclerview-v7:$support_library_version"
     api "com.android.support:support-annotations:$support_library_version"
     api "com.android.support:design:$support_library_version"
+    api "com.android.support:recyclerview-v7:$support_library_version"
+    api "com.android.support:support-annotations:$support_library_version"
 
     // constraint_layout
     api "com.android.support.constraint:constraint-layout:$constraint_layout_version"
@@ -91,4 +93,7 @@ dependencies {
     api "com.google.code.gson:gson:$gson_version"
     // logger
     api "com.orhanobut:logger:$logger_version"
+    // BaseRecyclerViewAdapterHelper
+    api "com.github.CymChad:BaseRecyclerViewAdapterHelper:$base_recyclerview_adapter_helper_version"
+
 }

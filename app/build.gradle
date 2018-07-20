@@ -36,7 +36,9 @@ dependencies {
     releaseApi "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanary_version"
 
     if (isUseAAR.toBoolean() || isBuildModule.toBoolean()) {
-        implementation "com.shendx.Ark:BaseLib:$base_lib_version"
+        implementation project(':BaseLib')
+
+//        implementation "com.shendx.Ark:BaseLib:$base_lib_version"
         implementation "com.shendx.Ark:M_WanAndroid:$m_wan_android_version"
         implementation "com.shendx.Ark:ExampleModule:$example_module_version"
     } else {

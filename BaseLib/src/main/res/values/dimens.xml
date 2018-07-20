@@ -1,0 +1,4 @@
+<resources>
+    <!---->
+    <dimen name="base_list_decoration">8dp</dimen>
+</resources>

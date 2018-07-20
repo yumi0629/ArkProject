@@ -3,13 +3,9 @@ package com.shendx.ark.base.lib.ui
 import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.annotation.StringRes
-import android.support.v7.widget.DialogTitle
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
-import android.view.WindowManager
 import com.shendx.ark.base.lib.R
-import com.shendx.ark.base.lib.util.StatusBarUtil
-import com.shendx.ark.base.lib.util.getColorRes
 import com.shendx.ark.base.lib.util.getStringRes
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 
@@ -24,7 +20,6 @@ abstract class BaseActivity : RxAppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN or WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
         setContentView(getLayoutId())
         setStatusBar()
         initExtraData()
@@ -34,8 +29,6 @@ abstract class BaseActivity : RxAppCompatActivity() {
     }
 
     protected fun setStatusBar() {
-//        StatusBarUtil.setColor(this, getColorRes(R.color.base_theme), 0)
-//        StatusBarUtil.setTranslucent(this)
     }
 
     /**
