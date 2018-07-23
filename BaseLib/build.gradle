@@ -95,5 +95,4 @@ dependencies {
     api "com.orhanobut:logger:$logger_version"
     // BaseRecyclerViewAdapterHelper
     api "com.github.CymChad:BaseRecyclerViewAdapterHelper:$base_recyclerview_adapter_helper_version"
-
 }

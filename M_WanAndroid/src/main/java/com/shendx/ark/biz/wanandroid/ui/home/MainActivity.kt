@@ -7,10 +7,12 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.chad.library.adapter.base.listener.OnItemClickListener
 import com.shendx.ark.base.lib.ui.list.BaseListActivity
+import com.shendx.ark.base.lib.util.img.loadUrl
 import com.shendx.ark.base.lib.util.json.toJson
 import com.shendx.ark.base.lib.util.logd
 import com.shendx.ark.biz.wanandroid.R
 import com.shendx.ark.biz.wanandroid.bean.response.ArticleListItem
+import kotlinx.android.synthetic.main.m_wan_item_main.view.*
 
 class MainActivity : BaseListActivity<MainActivity.MainAdapter, ArticleListItem>()
         , MainContract.MainView {
@@ -49,8 +51,11 @@ class MainActivity : BaseListActivity<MainActivity.MainAdapter, ArticleListItem>
 
     inner class MainAdapter : BaseQuickAdapter<ArticleListItem, BaseViewHolder>(R.layout.m_wan_item_main) {
         override fun convert(helper: BaseViewHolder, item: ArticleListItem) {
+            val itemView = helper.itemView
             helper.setText(R.id.text_name, item.author)
                     .setText(R.id.text_content, item.desc)
+
+            itemView.img_icon.loadUrl(item.envelopePic)
         }
     }
 }
