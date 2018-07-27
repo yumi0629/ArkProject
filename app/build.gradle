@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion compile_sdk_version
@@ -14,12 +15,23 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         multiDexEnabled true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    compileOptions {
+        sourceCompatibility javaVersion
+        targetCompatibility javaVersion
     }
 }
 
@@ -35,10 +47,12 @@ dependencies {
     debugApi "com.squareup.leakcanary:leakcanary-android:$leakcanary_version"
     releaseApi "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanary_version"
 
-    if (isUseAAR.toBoolean() || isBuildModule.toBoolean()) {
-        implementation project(':BaseLib')
+    // ARouter
+    kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"
 
-//        implementation "com.shendx.Ark:BaseLib:$base_lib_version"
+    if (isUseAAR.toBoolean() || isBuildModule.toBoolean()) {
+//        implementation project(':BaseLib')
+        implementation "com.shendx.Ark:BaseLib:$base_lib_version"
         implementation "com.shendx.Ark:M_WanAndroid:$m_wan_android_version"
         implementation "com.shendx.Ark:ExampleModule:$example_module_version"
     } else {

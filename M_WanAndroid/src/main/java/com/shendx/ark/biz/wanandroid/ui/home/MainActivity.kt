@@ -3,6 +3,7 @@ package com.shendx.ark.biz.wanandroid.ui.home
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.chad.library.adapter.base.listener.OnItemClickListener
@@ -14,6 +15,11 @@ import com.shendx.ark.biz.wanandroid.R
 import com.shendx.ark.biz.wanandroid.bean.response.ArticleListItem
 import kotlinx.android.synthetic.main.m_wan_item_main.view.*
 
+
+// 在支持路由的页面上添加注解(必选)
+// 这里的路径需要注意的是至少需要有两级，/xx/xx
+
+@Route(path = "/m_wan/MainActivity")
 class MainActivity : BaseListActivity<MainActivity.MainAdapter, ArticleListItem>()
         , MainContract.MainView {
 

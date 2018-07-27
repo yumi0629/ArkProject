@@ -5,6 +5,7 @@ if (isBuildModule.toBoolean()) {
 }
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 apply from: './bintray.gradle'
 
@@ -21,6 +22,12 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         multiDexEnabled true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
     }
 
     buildTypes {
@@ -47,6 +54,12 @@ android {
             }
         }
     }
+
+    compileOptions {
+        sourceCompatibility javaVersion
+        targetCompatibility javaVersion
+    }
+
     resourcePrefix "example_module"
 
 }
@@ -60,8 +73,12 @@ dependencies {
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso_core_version"
 
     if (isUseAAR.toBoolean() || isBuildModule.toBoolean()) {
-        implementation "com.shendx.Ark:BaseLib:$base_lib_version"
+//        implementation "com.shendx.Ark:BaseLib:$base_lib_version"
+        implementation project(':BaseLib')
     } else {
         implementation project(':BaseLib')
     }
+
+    // ARouter
+    kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"
 }
