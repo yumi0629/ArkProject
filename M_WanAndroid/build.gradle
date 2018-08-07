@@ -1,4 +1,4 @@
-if (isBuildModule.toBoolean()) {
+if (isBuildModule) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
@@ -70,15 +70,15 @@ dependencies {
     androidTestImplementation "com.android.support.test:runner:$runner_version"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso_core_version"
 
-    if (isBuildModule.toBoolean()) {
+    if (isBuildModule) {
         // leakcanary
         debugApi "com.squareup.leakcanary:leakcanary-android:$leakcanary_version"
         releaseApi "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanary_version"
     }
 
-    if (isUseAAR.toBoolean() || isBuildModule.toBoolean()) {
-//        implementation "com.shendx.Ark:BaseLib:$base_lib_version"
-        implementation project(':BaseLib')
+    if (isUseAAR || isBuildModule) {
+        implementation "com.shendx.Ark:BaseLib:$base_lib_version"
+//        implementation project(':BaseLib')
     } else {
         implementation project(':BaseLib')
     }

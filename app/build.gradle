@@ -50,8 +50,7 @@ dependencies {
     // ARouter
     kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"
 
-    if (isUseAAR.toBoolean() || isBuildModule.toBoolean()) {
-//        implementation project(':BaseLib')
+    if (isUseAAR || isBuildModule) {
         implementation "com.shendx.Ark:BaseLib:$base_lib_version"
         implementation "com.shendx.Ark:M_WanAndroid:$m_wan_android_version"
         implementation "com.shendx.Ark:ExampleModule:$example_module_version"
