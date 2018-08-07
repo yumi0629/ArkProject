@@ -9,7 +9,7 @@ import com.shendx.ark.base.lib.BaseApplication
 class WanAndroidApplication : BaseApplication() {
     override fun onCreate() {
         super.onCreate()
-        BaseApplication.initBaseApplication(context)
+        BaseApplication.initBaseApplication()
         initLeakCanary()
     }
 
