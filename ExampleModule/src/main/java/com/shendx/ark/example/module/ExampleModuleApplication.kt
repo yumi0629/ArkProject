@@ -9,6 +9,5 @@ import com.shendx.ark.base.lib.BaseApplication
 class ExampleModuleApplication : BaseApplication() {
     override fun onCreate() {
         super.onCreate()
-        BaseApplication.initBaseApplication()
     }
 }
