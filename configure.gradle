@@ -1,7 +1,7 @@
 project.ext {
     // ------------------------------    isBuildModule
-    //isBuildModule=true
-    isBuildModule = false
+    isBuildModule=true
+//    isBuildModule = false
     // ------------------------------    isUseAAR
     //isUseAAR=true
     isUseAAR = false
@@ -10,5 +10,5 @@ project.ext {
     //
     m_wan_android_version = '0.0.11'
     example_module_version = '0.0.04'
-    base_lib_version = '0.0.16'
+    base_lib_version = '0.0.17'
 }

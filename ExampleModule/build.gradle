@@ -73,8 +73,8 @@ dependencies {
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso_core_version"
 
     if (isUseAAR || isBuildModule) {
-        implementation "com.shendx.Ark:BaseLib:$base_lib_version"
-//        implementation project(':BaseLib')
+//        implementation "com.shendx.Ark:BaseLib:$base_lib_version"
+        implementation project(':BaseLib')
     } else {
         implementation project(':BaseLib')
     }

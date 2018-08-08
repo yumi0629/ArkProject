@@ -13,7 +13,6 @@ class ArkApplication : BaseApplication() {
     override fun onCreate() {
         super.onCreate()
         loge("ArkApplication")
-        BaseApplication.initBaseApplication()
         initLeakCanary()
     }
 
