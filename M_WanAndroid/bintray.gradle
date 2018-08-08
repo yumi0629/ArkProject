@@ -1,5 +1,5 @@
 group = "com.shendx.Ark"
-version = "0.0.11" //定义版本标识
+version = m_wan_android_version //定义版本标识
 
 def packageName = "m_wan_android" //需更改，这个名字就是你在Bintray上创建Package的名字，这里会查询，如果此包不存在就会创建一个。
 
