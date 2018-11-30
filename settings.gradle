@@ -1,4 +1,4 @@
 include ':app', ':BaseUI'
 include ':ExampleModule'
-include ':M_WanAndroid'
+//include ':M_WanAndroid'
 include ':BaseLib'

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="CircleProgressView">
+    <declare-styleable name="YUCircleProgressView">
         <attr name="cpv_progressNormalColor" format="color"/>
         <attr name="cpv_progressReachColor" format="color"/>
         <attr name="cpv_progressTextColor" format="color"/>

@@ -15,34 +15,34 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ProgressBar;
 
 import com.shendx.ark.base.ui.R;
-import com.shendx.ark.base.ui.util.UIUtil;
+import com.shendx.ark.base.ui.util.YUUtil;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-public class CircleProgressView extends ProgressBar {
+public class YUCircleProgressView extends ProgressBar {
 
-    private int mReachBarSize = UIUtil.INSTANCE.dp2px(2); // 未完成进度条大小
-    private int mNormalBarSize = UIUtil.INSTANCE.dp2px(2); // 未完成进度条大小
+    private int mReachBarSize = YUUtil.INSTANCE.dp2px(2); // 未完成进度条大小
+    private int mNormalBarSize = YUUtil.INSTANCE.dp2px(2); // 未完成进度条大小
     private int mReachBarColor = Color.parseColor("#108ee9"); // 已完成进度颜色
     private int mNormalBarColor = Color.parseColor("#FFD3D6DA"); // 未完成进度颜色
-    private int mTextSize = UIUtil.INSTANCE.sp2px(14); // 进度值字体大小
+    private int mTextSize = YUUtil.INSTANCE.sp2px(14); // 进度值字体大小
     private int mTextColor = Color.parseColor("#108ee9"); // 进度的值字体颜色
     private float mTextSkewX; // 进度值字体倾斜角度
     private String mTextSuffix = "%"; // 进度值前缀
     private String mTextPrefix = ""; // 进度值后缀
     private boolean mTextVisible = true; // 是否显示进度值
     private boolean mReachCapRound; // 画笔是否使用圆角边界，normalStyle下生效
-    private int mRadius = UIUtil.INSTANCE.dp2px(20); // 半径
+    private int mRadius = YUUtil.INSTANCE.dp2px(20); // 半径
     private int mStartArc; // 起始角度
     private int mInnerBackgroundColor; // 内部背景填充颜色
     private int mProgressStyle = ProgressStyle.NORMAL; // 进度风格
-    private int mInnerPadding = UIUtil.INSTANCE.dp2px(1); // 内部圆与外部圆间距
+    private int mInnerPadding = YUUtil.INSTANCE.dp2px(1); // 内部圆与外部圆间距
     private int mOuterColor; // 外部圆环颜色
     private boolean needDrawInnerBackground; // 是否需要绘制内部背景
     private RectF rectF; // 外部圆环绘制区域
     private RectF rectInner; // 内部圆环绘制区域
-    private int mOuterSize = UIUtil.INSTANCE.dp2px(1); // 外层圆环宽度
+    private int mOuterSize = YUUtil.INSTANCE.dp2px(1); // 外层圆环宽度
     private Paint mTextPaint; // 绘制进度值字体画笔
     private Paint mNormalPaint; // 绘制未完成进度画笔
     private Paint mReachPaint; // 绘制已完成进度画笔
@@ -60,15 +60,15 @@ public class CircleProgressView extends ProgressBar {
         int FILL_IN_ARC = 2;
     }
 
-    public CircleProgressView(Context context) {
+    public YUCircleProgressView(Context context) {
         this(context, null);
     }
 
-    public CircleProgressView(Context context, AttributeSet attrs) {
+    public YUCircleProgressView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public CircleProgressView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public YUCircleProgressView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         obtainAttributes(attrs);
         initPaint();
@@ -111,27 +111,27 @@ public class CircleProgressView extends ProgressBar {
     }
 
     private void obtainAttributes(AttributeSet attrs) {
-        TypedArray ta = getContext().obtainStyledAttributes(attrs, R.styleable.CircleProgressView);
-        mProgressStyle = ta.getInt(R.styleable.CircleProgressView_cpv_progressStyle, ProgressStyle.NORMAL);
+        TypedArray ta = getContext().obtainStyledAttributes(attrs, R.styleable.YUCircleProgressView);
+        mProgressStyle = ta.getInt(R.styleable.YUCircleProgressView_cpv_progressStyle, ProgressStyle.NORMAL);
         // 获取三种风格通用的属性
-        mNormalBarSize = (int) ta.getDimension(R.styleable.CircleProgressView_cpv_progressNormalSize, mNormalBarSize);
-        mNormalBarColor = ta.getColor(R.styleable.CircleProgressView_cpv_progressNormalColor, mNormalBarColor);
+        mNormalBarSize = (int) ta.getDimension(R.styleable.YUCircleProgressView_cpv_progressNormalSize, mNormalBarSize);
+        mNormalBarColor = ta.getColor(R.styleable.YUCircleProgressView_cpv_progressNormalColor, mNormalBarColor);
 
-        mReachBarSize = (int) ta.getDimension(R.styleable.CircleProgressView_cpv_progressReachSize, mReachBarSize);
-        mReachBarColor = ta.getColor(R.styleable.CircleProgressView_cpv_progressReachColor, mReachBarColor);
+        mReachBarSize = (int) ta.getDimension(R.styleable.YUCircleProgressView_cpv_progressReachSize, mReachBarSize);
+        mReachBarColor = ta.getColor(R.styleable.YUCircleProgressView_cpv_progressReachColor, mReachBarColor);
 
-        mTextSize = (int) ta.getDimension(R.styleable.CircleProgressView_cpv_progressTextSize, mTextSize);
-        mTextColor = ta.getColor(R.styleable.CircleProgressView_cpv_progressTextColor, mTextColor);
-        mTextSkewX = ta.getDimension(R.styleable.CircleProgressView_cpv_progressTextSkewX, 0);
-        if (ta.hasValue(R.styleable.CircleProgressView_cpv_progressTextSuffix)) {
-            mTextSuffix = ta.getString(R.styleable.CircleProgressView_cpv_progressTextSuffix);
+        mTextSize = (int) ta.getDimension(R.styleable.YUCircleProgressView_cpv_progressTextSize, mTextSize);
+        mTextColor = ta.getColor(R.styleable.YUCircleProgressView_cpv_progressTextColor, mTextColor);
+        mTextSkewX = ta.getDimension(R.styleable.YUCircleProgressView_cpv_progressTextSkewX, 0);
+        if (ta.hasValue(R.styleable.YUCircleProgressView_cpv_progressTextSuffix)) {
+            mTextSuffix = ta.getString(R.styleable.YUCircleProgressView_cpv_progressTextSuffix);
         }
-        if (ta.hasValue(R.styleable.CircleProgressView_cpv_progressTextPrefix)) {
-            mTextPrefix = ta.getString(R.styleable.CircleProgressView_cpv_progressTextPrefix);
+        if (ta.hasValue(R.styleable.YUCircleProgressView_cpv_progressTextPrefix)) {
+            mTextPrefix = ta.getString(R.styleable.YUCircleProgressView_cpv_progressTextPrefix);
         }
-        mTextVisible = ta.getBoolean(R.styleable.CircleProgressView_cpv_progressTextVisible, mTextVisible);
+        mTextVisible = ta.getBoolean(R.styleable.YUCircleProgressView_cpv_progressTextVisible, mTextVisible);
 
-        mRadius = (int) ta.getDimension(R.styleable.CircleProgressView_cpv_radius, mRadius);
+        mRadius = (int) ta.getDimension(R.styleable.YUCircleProgressView_cpv_radius, mRadius);
         rectF = new RectF(-mRadius, -mRadius, mRadius, mRadius);
 
         switch (mProgressStyle) {
@@ -141,13 +141,13 @@ public class CircleProgressView extends ProgressBar {
                 mOuterSize = 0;
                 break;
             case ProgressStyle.FILL_IN_ARC:
-                mStartArc = ta.getInt(R.styleable.CircleProgressView_cpv_progressStartArc, 0) + 270;
-                mInnerPadding = (int) ta.getDimension(R.styleable.CircleProgressView_cpv_innerPadding, mInnerPadding);
-                mOuterColor = ta.getColor(R.styleable.CircleProgressView_cpv_outerColor, mReachBarColor);
-                mOuterSize = (int) ta.getDimension(R.styleable.CircleProgressView_cpv_outerSize, mOuterSize);
+                mStartArc = ta.getInt(R.styleable.YUCircleProgressView_cpv_progressStartArc, 0) + 270;
+                mInnerPadding = (int) ta.getDimension(R.styleable.YUCircleProgressView_cpv_innerPadding, mInnerPadding);
+                mOuterColor = ta.getColor(R.styleable.YUCircleProgressView_cpv_outerColor, mReachBarColor);
+                mOuterSize = (int) ta.getDimension(R.styleable.YUCircleProgressView_cpv_outerSize, mOuterSize);
                 mReachBarSize = 0;// 将画笔大小重置为0
                 mNormalBarSize = 0;
-                if (!ta.hasValue(R.styleable.CircleProgressView_cpv_progressNormalColor)) {
+                if (!ta.hasValue(R.styleable.YUCircleProgressView_cpv_progressNormalColor)) {
                     mNormalBarColor = Color.TRANSPARENT;
                 }
                 int mInnerRadius = mRadius - mOuterSize / 2 - mInnerPadding;
@@ -155,10 +155,10 @@ public class CircleProgressView extends ProgressBar {
 
                 break;
             case ProgressStyle.NORMAL:
-                mReachCapRound = ta.getBoolean(R.styleable.CircleProgressView_cpv_reachCapRound, true);
-                mStartArc = ta.getInt(R.styleable.CircleProgressView_cpv_progressStartArc, 0) + 270;
-                if (ta.hasValue(R.styleable.CircleProgressView_cpv_innerBackgroundColor)) {
-                    mInnerBackgroundColor = ta.getColor(R.styleable.CircleProgressView_cpv_innerBackgroundColor, Color.argb(0, 0, 0, 0));
+                mReachCapRound = ta.getBoolean(R.styleable.YUCircleProgressView_cpv_reachCapRound, true);
+                mStartArc = ta.getInt(R.styleable.YUCircleProgressView_cpv_progressStartArc, 0) + 270;
+                if (ta.hasValue(R.styleable.YUCircleProgressView_cpv_innerBackgroundColor)) {
+                    mInnerBackgroundColor = ta.getColor(R.styleable.YUCircleProgressView_cpv_innerBackgroundColor, Color.argb(0, 0, 0, 0));
                     needDrawInnerBackground = true;
                 }
                 break;
@@ -341,7 +341,7 @@ public class CircleProgressView extends ProgressBar {
     }
 
     public void setReachBarSize(int reachBarSize) {
-        mReachBarSize = UIUtil.INSTANCE.dp2px(reachBarSize);
+        mReachBarSize = YUUtil.INSTANCE.dp2px(reachBarSize);
         invalidate();
     }
 
@@ -350,7 +350,7 @@ public class CircleProgressView extends ProgressBar {
     }
 
     public void setNormalBarSize(int normalBarSize) {
-        mNormalBarSize = UIUtil.INSTANCE.dp2px(normalBarSize);
+        mNormalBarSize = YUUtil.INSTANCE.dp2px(normalBarSize);
         invalidate();
     }
 
@@ -377,7 +377,7 @@ public class CircleProgressView extends ProgressBar {
     }
 
     public void setTextSize(int textSize) {
-        mTextSize = UIUtil.INSTANCE.sp2px(textSize);
+        mTextSize = YUUtil.INSTANCE.sp2px(textSize);
         invalidate();
     }
 
@@ -440,7 +440,7 @@ public class CircleProgressView extends ProgressBar {
     }
 
     public void setRadius(int radius) {
-        mRadius = UIUtil.INSTANCE.dp2px(radius);
+        mRadius = YUUtil.INSTANCE.dp2px(radius);
         invalidate();
     }
 
@@ -476,7 +476,7 @@ public class CircleProgressView extends ProgressBar {
     }
 
     public void setInnerPadding(int innerPadding) {
-        mInnerPadding = UIUtil.INSTANCE.dp2px(innerPadding);
+        mInnerPadding = YUUtil.INSTANCE.dp2px(innerPadding);
         int mInnerRadius = mRadius - mOuterSize / 2 - mInnerPadding;
         rectInner = new RectF(-mInnerRadius, -mInnerRadius, mInnerRadius, mInnerRadius);
         invalidate();
@@ -496,7 +496,7 @@ public class CircleProgressView extends ProgressBar {
     }
 
     public void setOuterSize(int outerSize) {
-        mOuterSize = UIUtil.INSTANCE.dp2px(outerSize);
+        mOuterSize = YUUtil.INSTANCE.dp2px(outerSize);
         invalidate();
     }
 

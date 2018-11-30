@@ -5,7 +5,7 @@ import android.content.res.Resources
 /**
  *
  */
-internal object UIUtil {
+internal object YUUtil {
     private fun getDensity(): Float {
         return Resources.getSystem().displayMetrics.density
     }

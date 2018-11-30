@@ -35,7 +35,7 @@ android {
         targetCompatibility javaVersion
     }
 
-    resourcePrefix "base_ui"
+//    resourcePrefix "base_ui"
 }
 
 dependencies {
@@ -47,6 +47,8 @@ dependencies {
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso_core_version"
 
     implementation project(':BaseLib')
+
+    api 'com.jaeger.statusbarutil:library:1.5.1'
 
 //    if (isUseAAR || isBuildModule) {
 //        implementation "com.shendx.Ark:BaseLib:$base_lib_version"
