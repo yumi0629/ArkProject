@@ -1,10 +1,11 @@
-package com.shendx.ark.base.lib.util
+package com.shendx.ark.base.ui.util
 
 import android.content.res.Resources
-import android.util.TypedValue
-import com.shendx.ark.base.lib.BaseApplication
 
-object AppUtil {
+/**
+ *
+ */
+internal object UIUtil {
     private fun getDensity(): Float {
         return Resources.getSystem().displayMetrics.density
     }

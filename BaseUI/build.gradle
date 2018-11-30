@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
@@ -7,11 +7,11 @@ android {
     compileSdkVersion compile_sdk_version
 
     defaultConfig {
-        applicationId "com.shendx.ark"
         minSdkVersion min_sdk_version
         targetSdkVersion target_sdk_version
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         multiDexEnabled true
@@ -22,6 +22,7 @@ android {
             }
         }
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -33,30 +34,23 @@ android {
         sourceCompatibility javaVersion
         targetCompatibility javaVersion
     }
+
+    resourcePrefix "base_ui"
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     // ------------------------------    test
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "com.android.support.test:runner:$runner_version"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso_core_version"
 
-    // leakcanary
-    debugApi "com.squareup.leakcanary:leakcanary-android:$leakcanary_version"
-    releaseApi "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanary_version"
+    implementation project(':BaseLib')
 
-    // ARouter
-    kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"
-//    api 'com.shendx.Ark:BaseUI:0.0.1'
-    if (isUseAAR || isBuildModule) {
-        implementation "com.shendx.Ark:BaseLib:$base_lib_version"
-        implementation "com.shendx.Ark:M_WanAndroid:$m_wan_android_version"
-        implementation "com.shendx.Ark:ExampleModule:$example_module_version"
-    } else {
-        implementation project(':BaseLib')
-        implementation project(':ExampleModule')
-        implementation project(':M_WanAndroid')
-    }
+//    if (isUseAAR || isBuildModule) {
+//        implementation "com.shendx.Ark:BaseLib:$base_lib_version"
+//    } else {
+//        implementation project(':BaseLib')
+//    }
 }
