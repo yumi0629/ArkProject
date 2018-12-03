@@ -16,7 +16,7 @@ import android.support.v7.widget.RecyclerView
 import android.widget.LinearLayout
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.shendx.ark.base.lib.R
-import com.shendx.ark.base.lib.util.getDimensionPixelSizeRes
+import com.shendx.ark.base.lib.util.getResDimensionPixelSize
 
 
 /**
@@ -32,7 +32,7 @@ class ItemDecorationV1
  * @param headNoDivider true  在headview下面不显示divider
  */
 @JvmOverloads constructor(private val mOrientation: Int = LinearLayout.VERTICAL,
-                          private val dividerHeight: Int = getDimensionPixelSizeRes(R.dimen.base_list_decoration),
+                          private val dividerHeight: Int = getResDimensionPixelSize(R.dimen.base_list_decoration),
                           @ColorInt color: Int = Default_color,
                           private val headNoDivider: Boolean = false) : RecyclerView.ItemDecoration() {
 

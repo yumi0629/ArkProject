@@ -22,6 +22,12 @@ android {
             }
         }
     }
+
+    lintOptions {
+        disable 'GoogleAppIndexingWarning'
+        baseline file("lint-baseline.xml")
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -46,6 +52,7 @@ dependencies {
     // leakcanary
     debugApi "com.squareup.leakcanary:leakcanary-android:$leakcanary_version"
     releaseApi "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanary_version"
+    implementation project(':YMUI')
 
     // ARouter
     kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"

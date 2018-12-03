@@ -9,7 +9,7 @@ import android.view.Gravity
 import android.widget.Toast
 
 import com.shendx.ark.base.lib.BaseApplication
-import com.shendx.ark.base.lib.util.getStringRes
+import com.shendx.ark.base.lib.util.getResString
 
 /**
  * Toast工具类
@@ -21,7 +21,7 @@ private object MyToast {
     private var twoTime: Long = 0
 
     fun showToast(@StringRes resId: Int) {
-        showToast(getStringRes(resId))
+        showToast(getResString(resId))
     }
 
     fun showToast(s: String) {

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingDefaultResource">
+    <color name="ym_common_color_theme">#6452a1</color>
+    <color name="ym_common_color_window_bg">#e1e1e1</color>
+
+</resources>

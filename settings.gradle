@@ -1,4 +1,6 @@
-include ':app', ':BaseUI'
-include ':ExampleModule'
+//include ':app'
+include ':YMUI'
+include ':DemoYMUI'
+//include ':ExampleModule'
 //include ':M_WanAndroid'
 include ':BaseLib'

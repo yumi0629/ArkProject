@@ -11,9 +11,6 @@ class MainActivity : BaseActivity() {
     override fun getTitleText(): Int? = R.string.base_app_name
 
     override fun bindView(savedInstanceState: Bundle?) {
-        button.setOnClickListener {
-            ARouter.getInstance().build("/m_wan/MainActivity").navigation()
-        }
     }
 
     override fun initData() {

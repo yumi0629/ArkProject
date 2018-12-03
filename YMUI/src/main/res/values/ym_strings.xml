@@ -1,0 +1,9 @@
+<resources>
+    <string name="ym_app_name">YMUI</string>
+
+    <!--**********************************************
+    *   ym splash                                     *
+    ***********************************************-->
+    <string name="ym_splash_name">ShenDX ☆ PanWY</string>
+
+</resources>

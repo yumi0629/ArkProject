@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="YMRootTheme" parent="Base.AppTheme" />
+
+    <style name="YMBaseTheme" parent="YMRootTheme">
+
+        <!--**********************************************
+        *   ym theme                                     *
+        ***********************************************-->
+        <item name="ym_common_color_theme">@color/ym_common_color_theme</item>
+        <item name="ym_common_color_window_bg">@color/ym_common_color_theme</item>
+
+        <!--**********************************************
+        *   ym toolbar                                   *
+        ***********************************************-->
+        <item name="ym_toolbar_height">56dp</item>
+
+    </style>
+
+    <style name="YMConfigTheme" parent="YMBaseTheme" />
+
+    <style name="YMUITheme" parent="YMConfigTheme">
+        <item name="android:windowBackground">@color/ym_common_color_window_bg</item>
+    </style>
+
+    <style name="YMUITheme.launcher" parent="YMUITheme">
+        <item name="android:windowBackground">@drawable/ym_window_bg</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+</resources>

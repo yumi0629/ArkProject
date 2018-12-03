@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingDefaultResource">
+
+    <!--**********************************************
+    *                ym color                      *
+    ***********************************************-->
+    <attr name="ym_common_color_theme" format="color" />
+    <attr name="ym_common_color_window_bg" format="color" />
+
+    <!--**********************************************
+    *                ym toolbar                      *
+    ***********************************************-->
+    <attr name="ym_toolbar_title" format="reference|string" />
+    <attr name="ym_toolbar_hideLeft" format="boolean" />
+    <attr name="ym_toolbar_height" format="dimension" />
+
+</resources>
